@@ -6,10 +6,10 @@ class bank{
     String name;
     int id;
     long phoneNumber;
-    private final int totalFund = 1000000;
+    private final long totalFund = 1000000;
     private final float bankInterest = 5.5f;
-    int approved_loan_amount = 0;
-    String[] userData = new String[1] ;
+    long approved_loan_amount = 0;
+    String[] userData = new String[2] ;
     int i = 0;
     boolean exit = true;
 
@@ -18,12 +18,12 @@ class bank{
 
     public void checkLoan(){
         System.out.println("Enter the amount of Loan");
-        int loan = scan.nextInt();
+        long loan = scan.nextLong();
         if (loan <=totalFund){
             approved_loan_amount = loan;
             System.out.println("Loan is approved ");
             System.out.println(approved_loan_amount);
-            i++;
+
         }
         else {
             System.out.println("Not approved");
@@ -71,7 +71,12 @@ class userInfo extends bankBranch{
             loan();
             if(approved_loan_amount != 0){
                 userData[i]= "Name:-" + name + "\n" + "User_ID:-" + id + "\n" + "User_PhoneNumber:-" + phoneNumber + "\n" + "User_Branch_Name:-" + branchname + "\n" + "User's_Branch_ID:-" + branchid + "\n" + "Approved loan to User:-"+ approved_loan_amount;
+                i++;
             }
+            else {
+                System.out.println(" ");
+            }
+
 
         }
         public void displayUser(){
@@ -102,6 +107,9 @@ public class Day_10_Task_1 {
                     case 3:
                         us.exit = false;
                         break;
+
+                    default:
+                        System.out.println("Invalid Command");
                 }
         }catch (IndexOutOfBoundsException e){
             System.out.println("Exceeded User Limit Cannot add more users");
