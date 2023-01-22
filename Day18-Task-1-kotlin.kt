@@ -29,5 +29,4 @@ fun main() {
     colobj.display()
     colobj.branch().branchdisplay()
     colobj.branch().Student().studentdisplay()
-
 }
